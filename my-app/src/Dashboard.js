@@ -4,8 +4,8 @@ export default function Dashboard({count, setCount}) {
   const handleStrike = event => {
     if (count.strikes === 3) {   
       setCount({
+        ...count,
         strikes: 0,
-        balls: 0
       })
     }
     if (count.strikes < 3) {
@@ -19,11 +19,11 @@ export default function Dashboard({count, setCount}) {
   const handleBall = event => {
     if (count.balls === 4) {
       setCount({
-        strikes: 0,
+        ...count,
         balls: 0
       });
     }
-    if (count.balls < 3) {
+    if (count.balls < 4) {
       setCount({
         ...count,
         balls: count.balls + 1
@@ -32,7 +32,7 @@ export default function Dashboard({count, setCount}) {
   }
 
   const handleFoul = event => {
-    while (count.strikes < 2) {
+    if (count.strikes < 2) {
       setCount({
         ...count,
         strikes: count.strikes + 1
