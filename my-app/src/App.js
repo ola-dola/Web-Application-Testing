@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Display count={count} />
-      <Dashboard setCount={setCount} />
+      <Dashboard count={count} setCount={setCount} />
     </div>
   );
 }
